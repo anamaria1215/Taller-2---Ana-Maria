@@ -6,4 +6,3 @@ let teGustaProgramar = true;      // booleano
 console.log("Nombre:", nombre);
 console.log("Edad:", edad);
 console.log("¿Te gusta programar?:", teGustaProgramar);
-
