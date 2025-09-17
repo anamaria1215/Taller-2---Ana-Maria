@@ -1,36 +1,23 @@
-// Ejercicio 2 - let, const, var
+// Ejercicio 2 - Diferencias entre let, const y var
 
-// 1) let: se puede reasignar
+// 1) let -> puedes cambiar el valor sin problema
 let ciudad = "Bogotá";
-console.log("ciudad (inicio):", ciudad); // Bogotá
-ciudad = "Medellín";
-console.log("ciudad (cambiada):", ciudad); // Medellín
+console.log("Ciudad inicial:", ciudad);
+ciudad = "Medellín"; // cambiando valor
+console.log("Ciudad cambiada:", ciudad);
 
-// 2) const: no se puede reasignar
+// 2) const -> su valor NO puede cambiar
 const pais = "Colombia";
-console.log("pais:", pais);
-try {
-    // esto causará un error en ejecución
-    pais = "Perú";
-} catch (error) {
-    console.error("Intento de reasignar 'pais' (const) -> Error:", error.message);
-    // Mensaje: "Assignment to constant variable."
+console.log("País inicial:", pais);
+// pais = "Argentina"; // Si descomentas esto dará error: "TypeError: Assignment to constant variable."
+
+// 3) var -> se puede redeclarar y su comportamiento es diferente en bloques
+var color = "Rojo";
+console.log("Color fuera del bloque:", color);
+
+{
+  var color = "Azul"; // Cambia la variable globalmente
+  console.log("Color dentro del bloque:", color);
 }
 
-// 3) var: no es block-scoped (es function-scoped), por eso cambia fuera del bloque
-var color = "rojo";
-console.log("color antes del bloque:", color); // rojo
-{
-    var color = "azul"; // redeclaración y cambio afecta fuera del bloque
-    console.log("color dentro del bloque:", color); // azul
-}
-console.log("color después del bloque:", color); // azul
-
-// Comparación con let (block-scoped)
-let mascota = "gato";
-console.log("mascota antes:", mascota); // gato
-{
-    let mascota = "perro"; // esta 'mascota' es otra (solo existe dentro del bloque)
-    console.log("mascota dentro del bloque:", mascota); // perro
-}
-console.log("mascota fuera del bloque:", mascota); // gato
+console.log("Color después del bloque:", color);
